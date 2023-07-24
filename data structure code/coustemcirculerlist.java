@@ -90,7 +90,17 @@ public class CoustemCirculerList {
         tail=temp;
         tail.next=head;
         }
-    public static void main(String[] args) {
+
+
+    public void check(){
+if(head.val==tail.next.val){
+    System.out.print("True);}
+        System.out.print("False");
+        
+    }
+
+    
+        public static void main(String[] args) {
         CoustemCirculerList list=new CoustemCirculerList();
         list.addAtBeg(5);
         list.addAtBeg(4);
@@ -107,6 +117,6 @@ public class CoustemCirculerList {
         System.out.println();
         list.deleteAtEnd();
         list.displayForverd();
-
+        list.check();
     }
 }
