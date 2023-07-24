@@ -1,1 +1,13 @@
+Excercise - Link List 
 
+Question 5:  ⬇️
+public newll Excercise5(newll ll){
+       Node temp=ll.head;
+       newll list=new newll();
+       while(temp!=null) {
+           Node node = new Node(temp.value);
+           list.insertAtBeg(temp.value);
+            temp=temp.next;
+       }
+       return list;
+}
