@@ -11,3 +11,17 @@ public newll Excercise5(newll ll){
        }
        return list;
 }
+
+
+Question 8:  ⬇️
+
+public newll Excercise8(newll ll){
+       int f=0;
+       Node temp=head;
+       f=temp.value;
+       temp.value=tail.value;
+       tail.value=f;
+       return ll;
+
+}
+
