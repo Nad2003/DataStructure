@@ -1,1 +1,66 @@
 TikTakTo
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class tiktakto {
+    public static void main(String[] args) {
+        char[][] bord=new char[3][3];
+        for (char[] chars : bord) {
+            Arrays.fill(chars, ' ');
+        }//creating an empty bord
+        char player='X';
+        boolean gameOver=false;
+
+        Scanner scanner=new Scanner(System.in);
+        while(!gameOver){
+            printBord(bord);
+            System.out.println("palyer"+player+"enter");
+            int row=scanner.nextInt();
+            int col=scanner.nextInt();
+            if (bord[row][col]==' '){
+                bord[row][col]=player;
+                gameOver=haswon(bord,player);
+                if (gameOver){
+                    System.out.println("palyer"+player+"has won:");
+                }else{
+                    if (player=='X'){
+                        player='0';
+                    }else{
+                        player='X';
+                    }
+                }
+            }else{
+                System.out.println("INVALID MOVE ! TRY AGAIN:");
+            }
+        }
+        printBord(bord);
+    }
+
+    private static boolean haswon(char[][] bord, char player) {
+        for (char[] chars : bord) {
+            if (chars[0] == player && chars[1] == player && chars[2] == player) {
+                return true;
+            }
+        }
+        for (int col = 0; col < bord[0].length; col++) {
+            if (bord[0][col]==player&&bord[1][col]==player&&bord[2][col]==player){
+                return true;
+            }
+        }
+        if (bord[0][2]==player&&bord[1][1]==player&&bord[2][0]==player){
+            return true;
+        }
+        return bord[0][0] == player && bord[1][1] == player && bord[2][2] == player;
+    }
+
+    private static void printBord(char[][] bord) {
+        for (char[] chars : bord) {
+            for (char aChar : chars) {
+
+                System.out.print(aChar + " | ");
+            }
+            System.out.println();
+        }
+    }
+}
